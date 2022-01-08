@@ -11,7 +11,8 @@ for (let i = 1; i < testNumber; i++) {
   }
   stack.push(i);
 }
-//forEach 가 while 보다 시간을 더 잡아먹는 것 같다.
+//forEach 가 while 보다 시간을 더 잡아먹는 것 같다. 아닌 것 같기도..
+
 while (stack.length !== 0) {
   arr[stack.pop()] = -1;
 }
