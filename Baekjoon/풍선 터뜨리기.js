@@ -60,3 +60,4 @@ while (true) {
 }
 
 console.log(answer.join(" "));
+//백준 문제는 메모리 관련 문제 때문에 해결하지 못함.
