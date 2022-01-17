@@ -20,7 +20,6 @@ for (let i = 0; i < testNumber; i++) {
   }
 
   LCMs.push(commonMutiple.reduce((a, b) => a * b) * first * second);
-  console.log(first, second, commonMutiple);
 }
 
 console.log(LCMs.join("\n"));
