@@ -7,7 +7,7 @@ function factory(n) {
   else return n * factory(n - 1);
 }
 let answer = 0;
-
+console.log(factory(5));
 while (input >= 5) {
   answer += Math.floor(input / 5);
   input /= 5;
