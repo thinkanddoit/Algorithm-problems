@@ -17,6 +17,7 @@ nCr = nCr.toString();
 
 for (let i = nCr.length - 1; i >= 0; i--) {
   if (+nCr[i]) break;
+  드;
   answer++;
 }
 console.log(answer);
