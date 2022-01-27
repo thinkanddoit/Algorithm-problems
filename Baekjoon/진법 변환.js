@@ -6,5 +6,4 @@ const [number, way] = require("fs")
   .trim()
   .split(" ");
 
-console.log(number);
 console.log(parseInt(number.toString().toLowerCase(), way));
