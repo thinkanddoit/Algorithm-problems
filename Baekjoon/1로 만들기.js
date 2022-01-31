@@ -13,4 +13,4 @@ for (let i = 2; i <= number; i++) {
     dp[i] = Math.min(dp[i / 3] + 1, dp[i]);
   }
 }
-console.log(dp[number]);
+console.log(dp);
