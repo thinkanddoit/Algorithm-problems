@@ -9,3 +9,11 @@ const numbers = input
   .shift()
   .split(" ")
   .map((x) => +x);
+
+for (let i = 0; i <= sum; i++) {
+  for (let j = 1; j <= i; j++) {
+    dp[i] = Math.max(dp[i], dp[i - j] + numbers[j - 1]);
+  }
+}
+
+console.log(dp[sum]);
