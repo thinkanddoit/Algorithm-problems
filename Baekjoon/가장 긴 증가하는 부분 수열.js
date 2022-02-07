@@ -20,4 +20,4 @@ for (let i = 2; i <= count; i++) {
   if (dp[i] === 0) dp[i] = 1;
 }
 
-console.log(Math.max(...dp));
+console.log(dp);
