@@ -14,8 +14,6 @@ for (let i = 0; i <= N; i++) {
   dp[1][i] = 1;
 }
 
-console.log(dp[1]);
-
 for (let i = 2; i <= K; i++) {
   for (let j = 0; j <= N; j++) {
     let temp = 0;
