@@ -11,20 +11,13 @@ let min = numbers[1];
 dp[1] = numbers[1];
 
 for (let i = 2; i <= count; i++) {
-  if (numbers[i] < 0) {
-    if (min > 0) {
-      min = numbers[i];
+  if (min > 0) {
+    if (numbers[i] > 0) {
+      dp[i] = dp[i - 1] + numbers[i];
+      if (numbers[i] < min) min = numbers[i];
     } else {
-      if (numbers[i] < min) {
-        dp[i] = dp[i - 1] + min;
-        min = numbers[i];
-      } else {
-        dp[i] = dp[i - 1] + numbers[i];
-      }
+      min = numbers[i];
     }
-  } else {
-    dp[i] = dp[i - 1] + numbers[i];
-    if (numbers[i] < min) min = numbers[i];
   }
 }
 
