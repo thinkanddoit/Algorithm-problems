@@ -18,6 +18,8 @@ for (let i = 2; i <= count; i++) {
     } else {
       min = numbers[i];
     }
+  }else{
+      if(numbers[i]>min)
   }
 }
 
