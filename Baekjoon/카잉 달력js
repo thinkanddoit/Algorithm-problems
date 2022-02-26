@@ -1,0 +1,39 @@
+const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+
+const input = require("fs")
+  .readFileSync(path)
+  .toString()
+  .trim()
+  .split("\n")
+  .map((line) => line.split(" ").map((number) => +number));
+
+const numberOfTest = input[0][0];
+let arrayOfKs = [];
+
+for (let i = 1; i <= numberOfTest; i++) {
+  arrayOfKs.push(whatIsK(input[i]));
+}
+
+console.log(arrayOfKs.join("\n"));
+
+function whatIsK(numbers) {
+  const [M, N, X, Y] = numbers;
+  const last = lcm(M, N);
+  let x = X;
+  let y = Y;
+  while (true) {
+    if (x > last || y > last) return -1;
+    else if (x > y) y += N;
+    else if (x < y) x += M;
+    else return x;
+  }
+}
+
+function gcd(a, b) {
+  if (b === 0) return a;
+  return a > b ? gcd(b, a % b) : gcd(a, b % a);
+}
+
+function lcm(a, b) {
+  return (a * b) / gcd(a, b);
+}
