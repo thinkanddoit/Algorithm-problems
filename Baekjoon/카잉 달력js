@@ -10,12 +10,6 @@ const input = require("fs")
 const numberOfTest = input[0][0];
 let arrayOfKs = [];
 
-for (let i = 1; i <= numberOfTest; i++) {
-  arrayOfKs.push(whatIsK(input[i]));
-}
-
-console.log(arrayOfKs.join("\n"));
-
 function whatIsK(numbers) {
   const [M, N, X, Y] = numbers;
   const last = lcm(M, N);
@@ -30,10 +24,15 @@ function whatIsK(numbers) {
 }
 
 function gcd(a, b) {
-  if (b === 0) return a;
-  return a > b ? gcd(b, a % b) : gcd(a, b % a);
+  return b ? gcd(b, a % b) : a;
 }
 
 function lcm(a, b) {
   return (a * b) / gcd(a, b);
 }
+
+for (let i = 1; i <= numberOfTest; i++) {
+  arrayOfKs.push(whatIsK(input[i]));
+}
+
+console.log(arrayOfKs.join("\n"));
