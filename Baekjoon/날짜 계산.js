@@ -3,7 +3,15 @@ const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
 let E = 0;
 let S = 0;
 let M = 0;
-let realYear = 15;
+let realYear = 1;
+let lcmValue = 0;
+
+const gcd = (a, b) => {
+  if (b === 0) return a;
+  else return gcd(b, a % b);
+};
+
+const lcm = (a, b) => (a * b) / gcd(a, b);
 
 function decodeInputValues() {
   [E, S, M] = require("fs")
@@ -12,6 +20,7 @@ function decodeInputValues() {
     .trim()
     .split(" ")
     .map((x) => +x);
+  lcmValue = lcm(E, lcm(S, M));
 }
 
 function calculateRealYear() {
@@ -22,16 +31,14 @@ function calculateRealYear() {
 }
 
 function isETrue() {
-  let temp = realYear % 15 ? realYear % 15 : 15;
-  return temp === E;
+  return (realYear - E) % 15 === 0;
 }
+
 function isSTrue() {
-  let temp = realYear % 28 ? realYear % 28 : 28;
-  return temp === S;
+  return (realYear - S) % 28 === 0;
 }
 function isMTrue() {
-  let temp = realYear % 19 ? realYear % 19 : 19;
-  return temp === M;
+  return (realYear - M) % 19 === 0;
 }
 
 decodeInputValues();
