@@ -1,0 +1,31 @@
+const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+
+const [N, K] = require("fs")
+  .readFileSync(path)
+  .toString()
+  .trim()
+  .split(" ")
+  .map((x) => +x);
+
+const visited = [];
+visited[N] = 0;
+const Max = 100000;
+
+const queue = [N];
+outer: while (queue.length) {
+  console.log(queue);
+  if (N === K) {
+    console.log(0);
+    break;
+  }
+  const position = queue.shift();
+  for (next of [position * 2, position + 1, position - 1]) {
+    if (visited[next] >= 0 || next > Max || next < 0) continue;
+    visited[next] = visited[position] + 1;
+    if (next === K) {
+      console.log(visited[next]);
+      break outer;
+    }
+    queue.push(next);
+  }
+}
