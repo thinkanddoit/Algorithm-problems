@@ -13,7 +13,6 @@ const Max = 100000;
 
 const queue = [N];
 outer: while (queue.length) {
-  console.log(queue);
   if (N === K) {
     console.log(0);
     break;
