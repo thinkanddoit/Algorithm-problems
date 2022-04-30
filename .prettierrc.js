@@ -10,4 +10,4 @@ module.exports = {
 
   // 따옴표는 홑따옴표를 사용한다.
   singleQuote: true,
-}
+};

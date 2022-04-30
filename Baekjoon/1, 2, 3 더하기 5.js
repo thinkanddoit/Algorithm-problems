@@ -1,10 +1,10 @@
-const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+const path = process.platform === 'linux' ? '/dev/stdin' : 'input.txt';
 
-const [count, ...arr] = require("fs")
+const [count, ...arr] = require('fs')
   .readFileSync(path)
   .toString()
   .trim()
-  .split("\n")
+  .split('\n')
   .map((x) => +x);
 
 const max = Math.max(...arr);
@@ -29,4 +29,4 @@ arr.map((n) => {
   answer.push((dp[n][1] + dp[n][2] + dp[n][3]) % Mod);
 });
 
-console.log(answer.join("\n"));
+console.log(answer.join('\n'));
